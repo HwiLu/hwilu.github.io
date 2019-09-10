@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: https://hwilu.github.io/
+url: https://hwilu.github.io
 date_format: "ordinal"
 title: HwiLu's 博客
 subtitle: "day day up"
