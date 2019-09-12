@@ -1,4 +1,4 @@
-- name: Software Engineer Keywords
+- name: Operate Engineer Keywords
   keywords:  
       - Linux
       - Python
@@ -7,3 +7,8 @@
 - name: Bigdata Operate Keywords
   keywords:
       - Hadoop
+      - HBase
+      - Hive
+      - Yarn
+      - Kafka
+      - Flume
