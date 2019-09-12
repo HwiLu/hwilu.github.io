@@ -8,7 +8,7 @@ menu: 维基
 permalink: /wiki/
 ---
 
-> 记多少命令和快捷键会让脑袋爆炸呢？
+> 有哪些快捷键或命令可以在同事面前秀起来~
 
 <ul class="listing">
 {% for wiki in site.wiki %}
