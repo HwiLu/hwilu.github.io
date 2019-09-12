@@ -8,6 +8,7 @@ menu: 关于
 permalink: /about/
 ---
 Day Day Up.
+
 坚持输出，期待早日成为大牛。
 
 ## 联系
