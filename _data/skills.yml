@@ -1,19 +1,12 @@
 - name: Software Engineer Keywords
-  keywords:
-      - Java
-      - C++
+  keywords:  
+      - Linux
       - Python
-      - Design Patterns
+      - Shell
 
-- name: Mobile Developer Keywords
+- name: Bigdata Operate Keywords
   keywords:
-      - Android
-      - Reverse Engineering
-
-- name: Windows Developer Keywords
-  keywords:
-      - Win32 SDK
-      - DuiLib
-      - WTL
-      - COM
-      - WinDbg
+      - Hadoop
+      - HBase
+	  - Hive
+	  - Yarn
