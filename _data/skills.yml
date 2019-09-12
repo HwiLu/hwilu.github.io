@@ -7,6 +7,3 @@
 - name: Bigdata Operate Keywords
   keywords:
       - Hadoop
-      - HBase
-	  - Hive
-	  - Yarn
