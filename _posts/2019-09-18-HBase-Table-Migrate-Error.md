@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HBase表【HDFS文件】迁移报错分析
+title: HBase表迁移报错分析
 categories: HBase Hadoop HDFS
 description: 使用hdfs的distcp工具对HBase表迁移报错，抛出长度不匹配异常。
 keywords: HBase Hadoop HDFS
