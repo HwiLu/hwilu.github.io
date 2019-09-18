@@ -1,26 +1,16 @@
 ---
 layout: post
-title: template page
-categories: [cate1, cate2]
-description: some word here
-keywords: keyword1, keyword2
----
-
----
-layout: post
-title: HBase 表迁移报错分析java.io.IOException: Mismatch in length of source
-categories: HBase
-description: 使用hdfs的distcp工具对HBase 表迁移报错，抛出java.io.IOException: Mismatch in length of source异常
-keywords: HBase, Hadoop
-
+title: HBase表【HDFS文件】迁移报错分析-java.io.IOException: Mismatch in length of source:XXX and target：XXX
+categories: HBase Hadoop HDFS
+description: 使用hdfs的distcp工具对HBase表迁移报错，抛出长度不匹配异常。
+keywords: HBase Hadoop HDFS
 ---
 
 # 问题现象
-
-
 今天使用HDFS工具distcp对HBase表进行迁移备份时，发现distcp的MR人物最后几个Map Task执行失败了，导致整个MR任务失败。于是查询MR application的作业的发现1400多个map失败了11个，点进去看Map Task查看日志
 
-**Failed 的Map Task的日志**
+**failed 的Map Task的日志**
+
 ```
 2019-09-18 14:44:02,472 ERROR [main] org.apache.hadoop.tools.util.RetriableCommand: Failure in Retriable command: Copying hdfs://192.168.52.11/apps/hbase/data/data/default/weibo_user_201907/39cd5924d0551e010254a67086550c82/.tmp/5fc158e18769449cb04a1c0663b2d63b to hdfs://Beijing/OriginalData/HBase/Backup/weibo_user_201907/39cd5924d0551e010254a67086550c82/.tmp/5fc158e18769449cb04a1c0663b2d63b
 java.io.IOException: Mismatch in length of source:hdfs://192.168.52.11/apps/hbase/data/data/default/weibo_user_201907/39cd5924d0551e010254a67086550c82/.tmp/5fc158e18769449cb04a1c0663b2d63b (12884901888) and target:hdfs://Beijing/OriginalData/HBase/Backup/.distcp.tmp.attempt_1566477700032_952407_m_000180_0 (13154949632)
@@ -189,12 +179,14 @@ The filesystem under path '/apps/hbase/data/data/default/weibo_user_201907' is H
 2. 直接删除./tmp目录，然后重新迁移
 因为正常disable表成功之后，这些临时文件可以删除不影响数据的完整性，这样便可以处理源端与目的端的不一致，这种办法被证明有效。
 
-网上还提示有一下方法，不过有人说无效[distcp-mismatch-in-length-of-source](https://stackoverflow.com/questions/41542844/distcp-mismatch-in-length-of-source)
+网上还提到有以下方法，不过有人说无效[distcp-mismatch-in-length-of-source](https://stackoverflow.com/questions/41542844/distcp-mismatch-in-length-of-source)
+
 **加上`-skipcrccheck`参数**
 `-skipcrccheck`参数的解释为
 
->Whether to skip CRC checks between source and target paths
+> - skipcrcchech
+Whether to skip CRC checks between source and target paths
 
 关于`CRC check`的解释在：[CRC check](https://baike.baidu.com/item/%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A0%A1%E9%AA%8C%E7%A0%81/10168758?fromtitle=CRC%E6%A0%A1%E9%AA%8C&fromid=3439037)
 
-即使用`hadoop distcp -skipcrccheck -update hdfs://ip1/xxxxxxxxxx/xxxxx hdfs:///xxxxxxxxxxxx/ `重新迁移。
+即使用`hadoop distcp -skipcrccheck -update hdfs://ip1/xxxxxxxxxx/xxxxx hdfs:///xxxxxxxxxxxx/ `重新迁移。	
