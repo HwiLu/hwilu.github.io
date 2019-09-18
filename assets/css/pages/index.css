@@ -1,8 +1,7 @@
 .home .banner,
 .home .site-header {
-    background-image: url(/assets/images/C罗.png) center;
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+    background: #4183c4;
+    color: #fff
 }
 
 .home .banner .collection-head {
