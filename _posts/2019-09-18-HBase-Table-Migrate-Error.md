@@ -1,17 +1,17 @@
 ---
 layout: post
-title: HBase表迁移报错分析
+title: HBase表迁移报错分析-java.io.IOException: Mismatch in length of source：XX and target:xxx
 categories: HBase Hadoop HDFS
 description: 使用hdfs的distcp工具对HBase表迁移报错，抛出长度不匹配异常。
 keywords: HBase Hadoop HDFS
 ---
 
 # 问题现象
-今天使用HDFS工具distcp对HBase表进行迁移备份时，发现distcp的MR人物最后几个Map Task执行失败了，导致整个MR任务失败。于是查询MR application的作业的发现1400多个map失败了11个，点进去看Map Task查看日志
+今天使用HDFS工具distcp对HBase表进行迁移备份时，发现distcp的MR任务最后几个Map Task执行失败了，导致整个MR任务失败。于是查询MR application的作业的发现1400多个map失败了11个，点进去看Map Task查看日志
 
 **failed 的Map Task的日志**
 
-```
+```vim
 2019-09-18 14:44:02,472 ERROR [main] org.apache.hadoop.tools.util.RetriableCommand: Failure in Retriable command: Copying hdfs://192.168.52.11/apps/hbase/data/data/default/weibo_user_201907/39cd5924d0551e010254a67086550c82/.tmp/5fc158e18769449cb04a1c0663b2d63b to hdfs://Beijing/OriginalData/HBase/Backup/weibo_user_201907/39cd5924d0551e010254a67086550c82/.tmp/5fc158e18769449cb04a1c0663b2d63b
 java.io.IOException: Mismatch in length of source:hdfs://192.168.52.11/apps/hbase/data/data/default/weibo_user_201907/39cd5924d0551e010254a67086550c82/.tmp/5fc158e18769449cb04a1c0663b2d63b (12884901888) and target:hdfs://Beijing/OriginalData/HBase/Backup/.distcp.tmp.attempt_1566477700032_952407_m_000180_0 (13154949632)
 	at org.apache.hadoop.tools.mapred.RetriableFileCopyCommand.compareFileLengths(RetriableFileCopyCommand.java:194)
@@ -115,6 +115,7 @@ Caused by: java.io.IOException: Mismatch in length of source:hdfs://192.168.52.1
 日志提示源端文件与目标文件不一致，于是检查源文件的文件状态
 
 **hdfs fsck结果**
+
 `hadoop fsck hdfs://192.168.52.11/apps/hbase/data/data/default/weibo_user_201907`
 
 ```
@@ -151,7 +152,7 @@ FSCK ended at Wed Sep 18 17:01:02 CST 2019 in 45655 milliseconds
 1. 重新enable表，让HBase自己处理该临时文件（这里原本是觉得它会将compaction过程走完，然后tmp文件变成合并后的文件，后面想想可能HBase会直接将该文件删除，这里还没有确定，不太肯定），再disable该表。事实证明，该方法是有效的，再重新disable之后，发现fsck没有了被打开的文件。
 
 **正常的hdfs fsck 结果**
-```
+```vim
 ....................................................................................................
 ......Status: HEALTHY
  Total size:    1058696103638004 B
@@ -184,8 +185,10 @@ The filesystem under path '/apps/hbase/data/data/default/weibo_user_201907' is H
 **加上`-skipcrccheck`参数**
 `-skipcrccheck`参数的解释为
 
-> - skipcrcchech
-Whether to skip CRC checks between source and target paths
+```vim
+- skipcrcchech
+	Whether to skip CRC checks between source and target paths
+```
 
 关于`CRC check`的解释在：[CRC check](https://baike.baidu.com/item/%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A0%A1%E9%AA%8C%E7%A0%81/10168758?fromtitle=CRC%E6%A0%A1%E9%AA%8C&fromid=3439037)
 
