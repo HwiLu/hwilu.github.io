@@ -149,6 +149,7 @@ FSCK ended at Wed Sep 18 17:01:02 CST 2019 in 45655 milliseconds
 
 # 解决方案
 现在有两种方案进行解决
+
 **1）**  重新enable表，让HBase自己处理该临时文件（这里原本是觉得它会将compaction过程走完，然后tmp文件变成合并后的文件，后面想想可能HBase会直接将该文件删除，这里还没有确定，不太肯定），再disable该表。事实证明，该方法是有效的，再重新disable之后，发现fsck没有了被打开的文件。
 
 **正常的hdfs fsck 结果**
