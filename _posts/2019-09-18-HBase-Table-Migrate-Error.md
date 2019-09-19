@@ -149,7 +149,7 @@ FSCK ended at Wed Sep 18 17:01:02 CST 2019 in 45655 milliseconds
 
 # 解决方案
 现在有两种方案进行解决
-1. 重新enable表，让HBase自己处理该临时文件（这里原本是觉得它会将compaction过程走完，然后tmp文件变成合并后的文件，后面想想可能HBase会直接将该文件删除，这里还没有确定，不太肯定），再disable该表。事实证明，该方法是有效的，再重新disable之后，发现fsck没有了被打开的文件。
+**1）**  重新enable表，让HBase自己处理该临时文件（这里原本是觉得它会将compaction过程走完，然后tmp文件变成合并后的文件，后面想想可能HBase会直接将该文件删除，这里还没有确定，不太肯定），再disable该表。事实证明，该方法是有效的，再重新disable之后，发现fsck没有了被打开的文件。
 
 **正常的hdfs fsck 结果**
 ```vim
@@ -177,13 +177,15 @@ The filesystem under path '/apps/hbase/data/data/default/weibo_user_201907' is H
 ```
 然后再迁移，即可成功。
 
-2. 直接删除./tmp目录，然后重新迁移
+**2）**  直接删除./tmp目录，然后重新迁移
 因为正常disable表成功之后，这些临时文件可以删除不影响数据的完整性，这样便可以处理源端与目的端的不一致，这种办法被证明有效。
 
 网上还提到有以下方法，不过有人说无效[distcp-mismatch-in-length-of-source](https://stackoverflow.com/questions/41542844/distcp-mismatch-in-length-of-source)
 
 **加上`-skipcrccheck`参数**
+
 `-skipcrccheck`参数的解释为
+
 
 ```vim
 - skipcrcchech
