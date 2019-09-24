@@ -195,6 +195,8 @@
 .markdown-body h1,.markdown-body h2 {
     padding-bottom: .3em;
     border-bottom: 1px solid #eee
+	color: #DA4453;
+
 }
 
 .site-footer .copyright {
