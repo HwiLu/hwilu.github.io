@@ -103,7 +103,7 @@ gitment:
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: HwiLu
-	admin: HwiLu
+    admin: HwiLu
     repo: blog-comments
     clientID: dbdd8820a7c374fc76360
     clientSecret: 108eff61f58ce177f945aba57547ac4ad849f85b
