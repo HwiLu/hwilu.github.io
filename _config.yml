@@ -105,8 +105,8 @@ gitalk:
     owner: HwiLu
     admin: HwiLu
     repo: blog-comments
-    clientID: dbdd8820a7c374fc76360
-    clientSecret: 108eff61f58ce177f945aba57547ac4ad849f85b
+    clientID: 08f0e629bd8c44f8aea0
+    clientSecret: fea2b7f94174e08edc20f72f179276dbfe96559d
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 
