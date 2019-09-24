@@ -37,10 +37,17 @@
 }
 
 .site-header {
+    position: fixed;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 20px;
     border-bottom: 1px solid #eee
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 .site-header .account-switcher {
