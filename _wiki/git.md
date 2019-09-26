@@ -1,11 +1,12 @@
 ---
 layout: wiki
-title: Git
-categories: Git
+title: Git 总结
+categories: [Git, 转载]
 description: Git 常用操作记录。
 keywords: Git, 版本控制
 ---
 
+原文地址：[码志](https://mazhuang.org/wiki/git/)
 ## 常用命令
 
 | 功能                      | 命令                                  |
