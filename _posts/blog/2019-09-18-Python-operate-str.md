@@ -90,6 +90,7 @@ str.isupper()   # 检测字符串中所有的字母是否都为大写
 str.istitle()   # 检测字符串中所有的单词拼写首字母是否为大写，且其他字母为小写
 ```
 判断字符串开头结尾
+
 ```python
 >>> str='hello world you'
 >>> str.startswith('hello')
