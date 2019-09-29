@@ -5,7 +5,7 @@ categories: [Python]
 description: Python基础
 keywords: Python
 ---
-
+总结Python如何操作列表基础知识。列表操作一文通 :smile: 。
 
 # 何为列表
 ```
