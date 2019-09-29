@@ -92,18 +92,16 @@ str.isupper()   # 检测字符串中所有的字母是否都为大写
 str.istitle()   # 检测字符串中所有的单词拼写首字母是否为大写，且其他字母为小写
 ```
 
-判断字符串开头结尾
+- 判断字符串开头结尾
 ```python
 >>> str='hello world you'
 >>> str.startswith('hello')
 True
 
->>> str.endswith('you')        　　#判读字符串以'you'结尾
+>>> str.endswith('you') #判读字符串以'you'结尾
 True
 
 ```
-
-
 
 - 处理字符串
 ```
@@ -138,4 +136,4 @@ s = '\r\nabc\t123\nxyz'
 print(re.sub('[\r\n\t]', '', s))
 ```
 
-** refer:[简书blog](https://www.jianshu.com/p/b758332c44bb) **
+**refer:[简书blog](https://www.jianshu.com/p/b758332c44bb)**
