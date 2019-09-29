@@ -52,6 +52,7 @@ org.apache.hadoop.yarn.server.resourcemanager.nodelabels.RMNodeLabelsManager
 也可以通过Yarn管理页面查看`Node Label`
 node-label webUI
 http://RM-Address:port/cluster/nodelabels
+
 ## 与node-labels有关的重要配置项
 - `yarn.scheduler.capacity.<queue-path>.default-node-label-expression ：` 队列默认的访问label，如果请求中未设置label，则设置为该值；默认为空，表现允许访问无label的节点
 - `yarn.scheduler.capacity.<queue-path>.accessible-node-labels：`队列可以访问的label列表,如`"label01,label02"`,通过逗号分隔，另外队列均可以访问没有标签的node;默认继承父队列的`accessible labels`；如果只允许访问无标签的node，配置为一个空
@@ -81,3 +82,4 @@ http://RM-Address:port/cluster/nodelabels
     <value>label02</value>
   </property>
 ```
+
