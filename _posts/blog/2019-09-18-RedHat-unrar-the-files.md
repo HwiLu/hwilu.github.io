@@ -1,9 +1,9 @@
 ---
 layout: post
 title: RedHat/Centos解压缩 rar 文件
-categories: [linux]
+categories: [Linux]
 description: RedHat/Centos解压缩 rar 文件
-keywords: linux
+keywords: Linux
 ---
 
 # 下载对应的工具
