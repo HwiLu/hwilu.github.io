@@ -10,7 +10,7 @@ keywords: Shell
 
 ## 为什么bash脚本里if语句的方括号后面需要空格？为什么空格在bash脚本里这么重要？
 
-以前写bash脚本的时候，经常被`[` `]`前后需不需要空格搞昏。知道在Stack Overflow上看到了这个问题[传送门](https://stackoverflow.com/questions/9581064/why-should-there-be-a-space-after-and-before-in-bash)，才明白是怎么回事。
+以前写bash脚本的时候，经常被`[` `]`前后需不需要空格搞昏，直到在Stack Overflow上看到了这个问题[传送门](https://stackoverflow.com/questions/9581064/why-should-there-be-a-space-after-and-before-in-bash)，才明白是怎么回事。
 比如：
 
 ```
@@ -31,5 +31,6 @@ if  [ $CHOICE -eq 1 ];
     This is a synonym for the "test" builtin, but the last argument must
     be a literal `]', to match the opening `['.
 ```
+可以看出 `[` **命令** 与 `test` 命令等同。
 
-refer:[https://stackoverflow.com/questions/9581064/why-should-there-be-a-space-after-and-before-in-bash](why-should-there-be-a-space-after-and-before-in-bash)
+**refer:[why-should-there-be-a-space-after-and-before-in-bash](https://stackoverflow.com/questions/9581064/why-should-there-be-a-space-after-and-before-in-bash)**
