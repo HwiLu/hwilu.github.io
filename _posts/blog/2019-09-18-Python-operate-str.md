@@ -91,8 +91,8 @@ str.islower()   # 检测字符串是否由小写字母组成
 str.isupper()   # 检测字符串中所有的字母是否都为大写
 str.istitle()   # 检测字符串中所有的单词拼写首字母是否为大写，且其他字母为小写
 ```
-判断字符串开头结尾
 
+判断字符串开头结尾
 ```python
 >>> str='hello world you'
 >>> str.startswith('hello')
@@ -106,7 +106,6 @@ True
 
 
 - 处理字符串
-
 ```
 str.capitalize()   # 将字符串的第一个字母变成大写,其他字母变小写
 str.lower()        # 转换字符串中所有大写字符为小写
@@ -139,4 +138,4 @@ s = '\r\nabc\t123\nxyz'
 print(re.sub('[\r\n\t]', '', s))
 ```
 
-** refer:[简书blog](https://www.jianshu.com/p/b758332c44bb)**
+** refer:[简书blog](https://www.jianshu.com/p/b758332c44bb) **
