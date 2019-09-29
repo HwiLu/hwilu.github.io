@@ -6,6 +6,8 @@ description: Python基础
 keywords: Python3
 ---
 
+Python如何操作字符串总结，Python字符串处理，有本文就够了 :smile: 。
+
 - 截取字符串
 ```
 str[0:3] #截取第一位到第三位的字符
