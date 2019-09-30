@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Linux查询用户和用户组的对应关系
-categories: [Linux, shell]
+categories: [Linux, Shell]
 description: Linux users and its groups
-keywords: Linux, shell
+keywords: Linux, Shell
 ---
 查询Linux用户和用户组对于关系的一个脚本。
 
@@ -16,7 +16,7 @@ do
          id $user | grep -o '([^)]*)'  |sed 's/(//g' | sed 's/)//g' | xargs  | awk '{$2="";print $0}'
 done
 ```
-run it
+run it：
 ```
 sh user-id.sh | column -t
 ```
