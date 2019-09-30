@@ -37,7 +37,7 @@ keywords: Linux
 
   安装`libstdc++.i686`加以解决。
   ```
-  # yum install libstdc++.i686
+   # yum install libstdc++.i686
   ```
 2. 如果出现 `[/lib/ld-linux.so.2: bad ELF interpreter: No such file or directory](https://stackoverflow.com/questions/14030306/lib-ld-linux-so-2-bad-elf-interpreter-no-such-file-or-directory)`
 
