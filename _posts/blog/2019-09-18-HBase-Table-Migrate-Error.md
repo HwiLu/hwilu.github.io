@@ -1,9 +1,9 @@
 ---
 layout: post
 title: HBase表迁移报源文件与目标文件不匹配错误
-categories: HBase Hadoop HDFS
+categories: [HBase,HDFS]
 description: 使用hdfs的distcp工具对HBase表迁移报错，抛出长度不匹配异常。
-keywords: HBase Hadoop HDFS
+keywords: HBase  HDFS
 ---
 
 # 问题现象
