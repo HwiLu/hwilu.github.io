@@ -30,3 +30,7 @@ keywords: HDFS
 
 
 保存之后，重启相应服务。
+
+
+
+Refer: [cloudera doc](https://docs.cloudera.com/documentation/enterprise/5-4-x/topics/admin_dn_storage_balancing.html)
