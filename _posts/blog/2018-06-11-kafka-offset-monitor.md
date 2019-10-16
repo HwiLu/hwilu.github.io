@@ -103,14 +103,14 @@ bin/kafka-topics.sh --create --zookeeper zk01.site.com:2181,zk02.site.com:2181,z
 当我们使用公司内网访问时，会发现这个网页只显示了文字，真正的ui并没有正常显示，网上已经给出了一些解决办法，即更换 angular 的三个js文件。参考：[KafkaOffsetMonitor-assembly-0.2.1.jar使用遇到的问题](https://blog.csdn.net/feinifi/article/details/83015492)
 
 然后发现还是不行，问题显然不止这一个，于是使用 `F12` 查看该页面的调试信息，发现：
-![显示异常](/images/posts/kafka/kafkaMonitor.png)。
+![显示异常](/images/posts/kafka/kafkaMonitorUiError.png)。
 于是我们从 offsetapp/index.html 找到这些css和js文件的地址。全部下下之后放在 offsetapp/css 目录之下，然后修改该5个文件的地址，如下图所示：
 
 ![bootstrap](/images/posts/kafka/kafkaMonitorBootstrap.png)
 
 全部替换完之后，重新打jar包，发现可以正常访问了。
 
-![kafkaMonitor](/images/posts/kafka/kafkaMonitor.png)
+![kafkaMonitor](/images/posts/kafka/kafkaMonitorUiRight.png)
 
 下载的文件我上传在[这](https://github.com/HwiLu/blog-comments/kafkaOffsetMonitor)了。
 
