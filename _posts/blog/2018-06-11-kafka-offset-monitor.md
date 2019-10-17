@@ -6,7 +6,6 @@ description: KafkaOffsetMonitor测试与使用
 keywords: Kafka
 ---
 
-
 This is an app to monitor your kafka consumers and their position (offset) in the queue.
 
 ## 安装
@@ -98,13 +97,13 @@ bin/kafka-topics.sh --create --zookeeper zk01.site.com:2181,zk02.site.com:2181,z
 - Created：表示该Partition创建时间
 - Last Seen：表示消费状态刷新最新时间
 
-# 内网访问问题
+## 内网访问问题
 
 当我们使用公司内网访问时，会发现这个网页只显示了文字，真正的ui并没有正常显示，网上已经给出了一些解决办法，即更换 angular 的三个js文件。参考：[KafkaOffsetMonitor-assembly-0.2.1.jar使用遇到的问题](https://blog.csdn.net/feinifi/article/details/83015492)
 
 然后发现还是不行，问题显然不止这一个，于是使用 `F12` 查看该页面的调试信息，发现：
-![显示异常](/images/posts/kafka/kafkaMonitorUiError.png)。
-于是我们从 offsetapp/index.html 找到这些css和js文件的地址。全部下下之后放在 offsetapp/css 目录之下，然后修改该5个文件的地址，如下图所示：
+![显示异常](/images/posts/kafka/kafkaMonitorUiError.png)
+我们可以看到，有部分js和css文件无法加载出来，于是我们从 offsetapp/index.html 找到这些css和js文件的地址。全部下下之后放在 offsetapp/css 目录之下，然后修改该5个文件的地址，如下图所示：
 
 ![bootstrap](/images/posts/kafka/kafkaMonitorBootstrap.png)
 
@@ -112,16 +111,17 @@ bin/kafka-topics.sh --create --zookeeper zk01.site.com:2181,zk02.site.com:2181,z
 
 ![kafkaMonitor](/images/posts/kafka/kafkaMonitorUiRight.png)
 
-下载的文件我上传在[这](https://github.com/HwiLu/blog-comments/kafkaOffsetMonitor)了。
+下载的文件我上传在[这](https://github.com/HwiLu/blog-comments/tree/master/kafkaOffsetMonitor)了。
 
-**jar包解压及压缩** 也记录一下
+## jar包解压及压缩
+记录一下
 
-## 解压到指定位置
+### 解压到指定位置
 
 ```
 unzip KafkaOffsetMonitor-assembly-0.2.1.jar -d web
 ```
-## 重新打包
+### 重新打包
 ```shell
 cd web/;
 jar cvfm KafkaOffsetMonitor-assembly-0.2.1.jar ./META-INF/MANIFEST.MF ./
