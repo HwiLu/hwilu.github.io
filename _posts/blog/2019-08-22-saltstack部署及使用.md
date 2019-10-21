@@ -255,15 +255,7 @@ node02:
 
 结构：
 
-```mermaid
-graph TD
-A(Master)-->B(Syndic1) 
-A --> C(Syndic2)
-B --> E(Minion1)
-B --> F(Minion2)
-C --> G(Minion3)
-C --> H(Minion4)
-```
+![saltstack HA架构](/images/posts/saltstack/saltstack-ha-structure.png)
 
 工作流程：
 
