@@ -7,7 +7,7 @@ keywords: HBase
 ---
 和HDFS一样，HBase也提供了自带的benchmark测试工具供用户测试HBase性能，本文主要记录HBase benchmark工具--PerformanceEvaluation 的用法。PerformanceEvaluation  简称为 pe。
 
-我们可以使用`hbase pe` 查看其相应的参数：
+我们可以使用 `hbase pe` 查看其相应的参数：
 
 
 ```
@@ -81,7 +81,8 @@ Examples:
 ```
 
  介绍一个用例：
-1.随机写测试 RandomWriteTest 
+
+​	1.随机写测试 RandomWriteTest 
 
 ```shell
 hbase pe --nomapred --oneCon=true --valueSize=100 --compress=SNAPPY --rows=150000 --autoFlush=true --presplit=60 randomWrite 64
@@ -93,9 +94,9 @@ hbase pe --nomapred --oneCon=true --valueSize=100 --compress=SNAPPY --rows=15000
 
  presplit 表的预分裂region个数，在做性能测试时一定要设置region个数，不然所有的读写会落在一个region上，严重影响性能 ；
 
-64 代表起了64个线程来做写入 ；
+64 代表起了64个线程来做写入 。
 
-2.顺序读：sequentialRead
+​	2.顺序读：sequentialRead
 
 例如，顺序读1千万条数据：
 ```
@@ -103,12 +104,12 @@ hbase org.apache.hadoop.hbase.PerformanceEvaluation --nomapred --rows=1000000 se
 ```
 1000000 * 10 = 10,000,000
 
-3.顺序写
+​	3.顺序写
 
 ```
  hbase/bin/hbase org.apache.hadoop.hbase.PerformanceEvaluation sequentialWrite 1
 ```
-4.随机读
+​	4.随机读
 
 ```
 hbase/bin/hbase org.apache.hadoop.hbase.PerformanceEvaluation randomRead 1
