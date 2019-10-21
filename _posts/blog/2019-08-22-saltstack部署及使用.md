@@ -187,18 +187,23 @@ And so on...
 
 不同人员所使用不同的主机需要关机所有相同的主机，建议部署多个Master。
 
-1. 在挑选一个节点作为master，比如node03；安装salt-master。
-2. 将原来的master配置文件同步过来:
+1.在挑选一个节点作为master，比如node03；安装salt-master。
+
+2.将原来的master配置文件同步过来:
+
 ```shell
 # scp /etc/salt/master root@node03:/etc/salt/
 ```
-3. 同步Master秘钥对
+3.同步Master秘钥对
 
 ```shell
 scp /etc/salt/pki/master/master.pem master.pub root@node03:/etc/salt/pki/master/ 
 ```
-4. 修改所有salt-minion配置文件/etc/salt/minion
+
+
+4.修改所有salt-minion配置文件/etc/salt/minion
 修改为：
+
 ```shell
 master:
  - ambari.site.com
