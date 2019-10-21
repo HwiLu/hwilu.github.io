@@ -7,6 +7,7 @@ keywords: SaltStack
 ---
 
 SaltStack可根据不同业务进行配置集中化管理、分发文件、采集服务器数据、操作系统基础及软件包管理等，SaltStack是运维人员提高工作效率、规范业务配置与操作的利器。
+
 SaltStack 采用 C/S模式，server端就是salt的master，client端就是minion，minion与master之间通过ZeroMQ消息队列通信
 
 # saltstack部署
@@ -254,20 +255,14 @@ node02:
 
 结构：
 
-
-
-
 ```mermaid
-
 graph TD
-
 A(Master)-->B(Syndic1) 
 A --> C(Syndic2)
 B --> E(Minion1)
 B --> F(Minion2)
 C --> G(Minion3)
 C --> H(Minion4)
-
 ```
 
 工作流程：
@@ -326,7 +321,7 @@ then，在Master节点接受Minion的key。
 
 
 
-**网络策略怎么开**
+## 网络策略怎么开
 
 如果需要开网络策略
 
