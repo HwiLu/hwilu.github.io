@@ -255,7 +255,7 @@ node02:
 
 结构：
 
-![saltstack HA架构](/images/posts/saltstack/saltstack-ha-structure.png)
+![saltstack的HA架构](/images/posts/saltstack/saltstack-ha-structure.png)
 
 工作流程：
 
