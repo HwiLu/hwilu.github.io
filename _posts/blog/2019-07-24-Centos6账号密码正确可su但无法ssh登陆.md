@@ -13,12 +13,19 @@ keywords: Linux
 
 ## 解决办法
 
-关闭selinux
+**关闭selinux**
+
 先临时关闭
+
 `setenforce 0`
+
 永久关闭
+
 `vim /etc/selinux/config`
+
 修改
+
 `SELINUX=enforcing 为 SELINUX=disabled。`
+
 这样便无需重启机器，使用ssh再次登录发现可以登录了。
 
