@@ -133,23 +133,34 @@ supervisor的 api 。
 官方文档：[supervisord.org](http://supervisord.org/introduction.html)
 ## 一些管理命令
 
+
+开启supervisord服务
 ```
-	开启supervisord服务
- supervisord -c /etc/supervisord.conf
-　　更新新的配置到supervisord
- supervisorctl update
-　　重新启动配置中的所有程序
- supervisorctl reload
-　　启动某个进程 
- supervisorctl start program_name
- 	停止所有程序进程
- supervisorctl stop all     
- 
-	管理所有属于名为 group 这个分组的进程
- sudo supervisorctl start/stop/restart/status group
- 
-    管理分组里指定的进程
- supervisorctl start/stop/restart/status group:name1    
+supervisord -c /etc/supervisord.conf
+```
+更新新的配置到supervisord
+```
+supervisorctl update
+```
+重新启动配置中的所有程序
+```
+supervisorctl reload
+```
+启动某个进程 
+```
+supervisorctl start program_name
+```
+停止所有程序进程
+```
+supervisorctl stop all     
+```
+管理所有属于名为 group 这个分组的进程
+```
+supervisorctl start/stop/restart/status group
+```
+管理分组里指定的进程
+```
+supervisorctl start/stop/restart/status group:name1    
 ```
 也可以使用查看正在守候的进程 supervisorctl 进行supervisor shell后 `help` 查看其有哪些管理命令。
 
