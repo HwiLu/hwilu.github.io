@@ -1,3 +1,11 @@
-Fork from: [mzlogin](https://github.com/mzlogin/mzlogin.github.io)
+个人博客
 
-并做了一定修改。
+
+
+已经收录的搜索引擎：
+
+- 百度
+
+- 必应
+
+  
