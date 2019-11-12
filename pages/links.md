@@ -23,3 +23,6 @@ permalink: /links/
 * [{{ link.name }}]({{ link.url }})
   {% endif %}
 {% endfor %}
+
+
+需要添加友链请在下方留言。 :smile:
