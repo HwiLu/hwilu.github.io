@@ -11,7 +11,7 @@ keywords: Yarn
 查看 nodemanager 日志可以发现以下报错：
 
 ```vim
-at org.apache.hadoop.yarn.server.nodemanager.NodeManager.initAndStartNodeManager http://org.apache.hadoop.yarn.server.nodemanager.nodemanager.initandstartnodemanager/(NodeManager.java:537 at org.apache.hadoop.yarn.server.nodemanager.NodeManager.main http://org.apache.hadoop.yarn.server.nodemanager.nodemanager.main/ NodeManager.java:585
+at org.apache.hadoop.yarn.server.nodemanager.NodeManager.initAndStartNodeManager http://org.apache.hadoop.yarn.server.nodemanager.nodemanager.initandstartnodemanager/NodeManager.java:537 at org.apache.hadoop.yarn.server.nodemanager.NodeManager.main http://org.apache.hadoop.yarn.server.nodemanager.nodemanager.main/ NodeManager.java:585
 Caused by: java.io.IOException: http://java.io.ioexception/ Not able to enforce cpu weights; cannot find cgroup for cpu controller in /proc/mounts
 ```
 
@@ -47,4 +47,3 @@ mount -t cgroup -o cpu none /cgroup/cpu
 - 重启nm 
 
 [Refer To Hortonworks](https://support.hortonworks.com/s/article/Not-able-to-start-the-Node-Managers-exception)
- 
