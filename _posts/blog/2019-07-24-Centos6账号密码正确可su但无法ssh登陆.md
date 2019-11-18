@@ -1,15 +1,27 @@
 ---
 layout: post
-title: "CentOS6账号密码正确可su但无法ssh登陆，messages提示error:Could not get shadow information for user"
+title: "CentOS6账号密码正确但是su和ssh均无法登陆，messages提示error:Could not get shadow information for user"
 categories: [Linux]
 description: 
 keywords: Linux
 ---
 
-因机器重启，重启后发现，普通账号无法`ssh 账号名@ip`登陆，但是却可以在本机使用其他账号`su - 账号名`的方式登陆。
+因机器重启，**重启后发现**，普通账号无法`ssh 账号名@ip`登陆，发现呈现以下错误。
 
-查看sshd_config配置并无异常。遂怀疑是selinux未永久关闭所致，查看`/etc/selinux/config `确实发现`SELINUX=enforcing`。 
+
+
 ![ssh-error](/images/posts/linux/ssh-error-01.png)
+
+同时，适用su到其他用户输入正确的密码也无法登陆成功，提示 ` su:incorrect password`。于是我认为这并不是 ssh 的问题，应该是密码认证的问题。
+
+于是查看 `/var/log/secure` 日志时也发现上述图片一样的报错。
+
+
+
+便查看了 sshd_config 配置文件的 `UsePAM` 参数，发现是 `YES` 。
+
+查看sshd_config配置并无异常，查看 `/etc/shadow` 文件权限也正常。遂怀疑是selinux未永久关闭所致，查看`/etc/selinux/config `确实发现`SELINUX=enforcing`。 
+
 
 ## 解决办法
 
