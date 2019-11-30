@@ -163,6 +163,17 @@ https://github.com
 </ul>
 ```
 
+### 上标下标
+写法
+```
+水：H<sub>2</sub>O  二氧化碳：CO<sub>2</sub>
+本产品<sup>TM</sup>
+```
+水：H<sub>2</sub>O  二氧化碳：CO<sub>2</sub>
+本产品<sup>TM</sup>
 
 
-转载于：[https://github.com/mzlogin/markdown-intro](https://github.com/mzlogin/markdown-intro)
+
+Reference：
+- [https://github.com/mzlogin/markdown-intro](https://github.com/mzlogin/markdown-intro)
+- [https://www.jianshu.com/p/13b3366f0260](https://www.jianshu.com/p/13b3366f0260)
