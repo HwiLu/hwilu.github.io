@@ -178,15 +178,17 @@ priority=1
 
 # 安装Ambari
 
-1. 如果选择将Ambari server安装在这台机器上，则:
+1、如果选择将Ambari server安装在这台机器上，则:
 
-	```vim
-	yum install ambari-server
-	```
-2. 配置ambari-server
-	```
-	ambari-server setup
-	```
+```vim
+yum install ambari-server
+```
+
+2、配置ambari-server
+
+```
+ambari-server setup
+```
 这是一个交互环境，记住：
 
 在选择database时，选择内嵌数据库，也就是 Postgres 数据库。
@@ -195,11 +197,11 @@ priority=1
 指定 Ambari Server 的运行用户为 root
 其他配置均使用默认，即可以直接回车。
 
-3. 启动ambari server
+3、启动ambari server
 
-   ```
-   ambari-server start
-   ```
+```
+ambari-server start
+```
 
 成功启动 Ambari Server 之后，便可以从浏览器登录，默认的端口为 8080。以我的环境为例，在浏览器的地址栏输入 [http://hdp1:8080](http://hdp1:8080/)，登录密码为 admin/admin。登入 Ambari 之后的页面如下图。 
 
@@ -207,10 +209,12 @@ priority=1
 
 # 部署HDP集群
 
-1. 点击上述图片中的Launch install Wizard
-2. 选择stack
-   我选择 的是HDP2.2，里面的对应的 Hadoop 版本为 2.6.x
-3. 指定 Agent 机器（如果配置了域，必须包含完整域名，例如本文环境的域为 example.com），这些机器会被安装 Hadoop 等软件包。配置SSH免密登陆时，会生成一个rsa_id文件，也就是私钥，这里需要指定当时在 Ambari Server 机器生成的私钥。
+1、点击上述图片中的Launch install Wizard
+
+2、选择stack
+我选择 的是HDP2.2，里面的对应的 Hadoop 版本为 2.6.x
+
+3、指定 Agent 机器（如果配置了域，必须包含完整域名，例如本文环境的域为 example.com），这些机器会被安装 Hadoop 等软件包。配置SSH免密登陆时，会生成一个rsa_id文件，也就是私钥，这里需要指定当时在 Ambari Server 机器生成的私钥。
 
 ```
 cat /root/.ssh/rsa_id
@@ -218,19 +222,19 @@ cat /root/.ssh/rsa_id
 
 把输出内容粘贴到这个文本框即可。
 
-4. confirm hosts
+4、confirm hosts
 也就是安装向目的主机安装ambari agent，一行写一台主机，填写是要主要填写主机主机名，不要填写IP，要不然有可能出现以下错误：
+
 ```
 ambari agent machine hostname (node11) does not match expected ambari server hostname (192.168.XX.XX).
 ```
 这是因为ambari-agent 在注册时，默认会获取主机主机名，并使用主机名想ambari-server注册。
 
-
-5. choose service
+5、choose service
 选择你要安装的服务，我这里选择：
 HDFS、Yarn、zookeeper、HBase
 
-6. Assign master和slave
+6、Assign master和slave
 即：分配哪些机器安装哪些服务
 
 下面步骤都很简单，一直点击next便可完成。
@@ -240,7 +244,8 @@ HDFS、Yarn、zookeeper、HBase
 ![ambari控制台](/images/posts/ambari/ambari-dashborad.png)
 
  刚装好时，因为所有服务都没启动，所有全是告警，上图因为我正在启动服务，所有欧HDFS和zookeeper显示无告警。
-7. 点击上图Actions >>start all 。启动所有服务。
+
+7、点击上图Actions >>start all 。启动所有服务。
 
 
 
@@ -276,6 +281,7 @@ If the output says openssl-1.0.1e-15.x86_64 (1.0.1 build 15) you will need to up
 
 
 - zookeeper无法启动
+
 查看zookeeper.out 日志
 ```
  [myid:3] - INFO  [main:FileSnap@83] - Reading log /hadoop/zookeeper/version-2/log.10000000
@@ -283,7 +289,6 @@ If the output says openssl-1.0.1e-15.x86_64 (1.0.1 build 15) you will need to up
  [myid:3] - ERROR [main:QuorumPeer@648] - Unable to load database on disk
 ```
 后面还报了cannot access  /hadoop/zookeeper/version-2/ 什么的，记不得了。遂查看/hadoop/zookeeper/version-2/目录权限。
-
 
 
 查看该文件权限
@@ -306,6 +311,7 @@ total 580
 ```
 chown -R zookeeper:hadoop /hadoop/zookeeper/version-2/
 ```
+重启即可。
 
 
 # 试跑
