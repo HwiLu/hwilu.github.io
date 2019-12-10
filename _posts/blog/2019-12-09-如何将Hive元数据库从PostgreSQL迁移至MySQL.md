@@ -12,7 +12,13 @@ keywords: hive
 
 ```
 create table testtable (id int, name string,age int, tel string) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE;
-# cat testdata.txt 1 mayun 25 131888888888882 mahuateng 30 138888888888883 majiaying 34 899314121
+```
+
+```
+# cat testdata.txt 
+1 mayun 25 13188888888888
+2 mahuateng 30 13888888888888
+3 majiaying 34 899314121
 ```
 
 加载数据
@@ -24,7 +30,18 @@ hdfs dfs -put testdata.txt /tmp/load data inpath 'testdata.txt' into table testt
 查看数据
 
 ```
->select * from testtable;+---------------+-----------------+----------------+-----------------+| testtable.id  | testtable.name  | testtable.age  |  testtable.tel  |+---------------+-----------------+----------------+-----------------+| NULL          | NULL            | NULL           | NULL            || NULL          | NULL            | NULL           | NULL            || NULL          | NULL            | NULL           | NULL            || NULL          | NULL            | NULL           | NULL            || 1             |  mayun          | 25             | 13188888888888  || 2             | mahuateng       | 30             | 13888888888888  || 3             | majiaying       | 34             | 899314121       |+---------------+-----------------+----------------+-----------------+
+>select * from testtable;
++---------------+-----------------+----------------+-----------------+
+| testtable.id  | testtable.name  | testtable.age  |  testtable.tel  |
++---------------+-----------------+----------------+-----------------+
+| NULL          | NULL            | NULL           | NULL            |
+| NULL          | NULL            | NULL           | NULL            |
+| NULL          | NULL            | NULL           | NULL            |
+| NULL          | NULL            | NULL           | NULL            |
+| 1             |  mayun          | 25             | 13188888888888  |
+| 2             | mahuateng       | 30             | 13888888888888  |
+| 3             | majiaying       | 34             | 899314121       |
++---------------+-----------------+----------------+-----------------+
 ```
 
 数据准备完毕之后，我们开始迁移操作。因为业务数据较少，所以整个过程都比较快，业务数据较大的情况尚未测试。
