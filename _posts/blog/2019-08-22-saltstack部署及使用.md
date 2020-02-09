@@ -47,7 +47,7 @@ SaltStack 采用 C/S模式，server端就是salt的master，client端就是minio
 先安装基础依赖包，在所规划作为master和minion的节点上均运行
 
 ```shell
- yum install -y PyYAML python-crypto  python-jinja2  python-markupsafe   python-msgpack  python-cherrypy
+yum install -y PyYAML python-crypto  python-jinja2  python-markupsafe   python-msgpack  python-cherrypy
 ```
 
 其余安装包及依赖包下载地址：https://repo.saltstack.com/yum/redhat/7/x86_64/，根据不同操作系统选择不同的版本。
