@@ -32,4 +32,5 @@ Day Day Up.
 <div style="text-align:left">
     <img style="border:1px solid #dddddd;height:168px;width:168px" src="{{ site.url }}/assets/images/qrcode.jpg" alt="Hadoop集群运维" />
 </div>
+---
 
