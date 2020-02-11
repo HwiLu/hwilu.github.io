@@ -28,9 +28,7 @@ Day Day Up.
 </div>
 {% endfor %}
 
-![欢迎关注](https://github.com/HwiLu/hwilu.github.io/assets/images/qrcode.jpg)
-
-
+## 欢迎关注
 <div style="text-align:left">
     <img style="border:1px solid #dddddd;height:168px;width:168px" src="{{ site.url }}/assets/images/qrcode.jpg" alt="Hadoop集群运维" />
 </div>
