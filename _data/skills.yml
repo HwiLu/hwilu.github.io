@@ -3,6 +3,7 @@
       - Linux
       - Python
       - Shell
+      - Go
 
 - name: Bigdata Operate Keywords
   keywords:
