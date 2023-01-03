@@ -12,3 +12,5 @@
       - Yarn
       - Kafka
       - Flume
+      - Spark
+      - Oceanbase
